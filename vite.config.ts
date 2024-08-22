@@ -3,6 +3,7 @@ import { createVuePlugin } from 'vite-plugin-vue2';
 import { resolve } from 'path';
 
 export default defineConfig({
+  base: "/vite-vue2-template/",
   plugins: [createVuePlugin()],
   resolve: {
     alias: {
@@ -12,21 +13,21 @@ export default defineConfig({
   server: {
     port: 3000,
   },
-  build: {
-    outDir: 'dist',
-    emptyOutDir: true,
-    lib: {
-      entry: resolve(__dirname, 'src/main.ts'),
-      name: 'tmp',
-      fileName: (format) => `tmp.${format}.js`,
-    },
-    rollupOptions: {
-      external: ['vue', 'vue-demi'],
-      output: {
-        globals: {
-          vue: 'Vue',
-        },
-      },
-    },
-  }
+  // build: {
+  //   outDir: 'dist',
+  //   emptyOutDir: true,
+  //   lib: {
+  //     entry: resolve(__dirname, 'src/main.ts'),
+  //     name: 'tmp',
+  //     fileName: (format) => `tmp.${format}.js`,
+  //   },
+  //   rollupOptions: {
+  //     external: ['vue', 'vue-demi'],
+  //     output: {
+  //       globals: {
+  //         vue: 'Vue',
+  //       },
+  //     },
+  //   },
+  // }
 });
